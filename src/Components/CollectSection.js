@@ -34,11 +34,11 @@ const CollectSection = () => {
 
   return (
     <div className="w-full bg-[#E0D7D4] pt-10 flex flex-col">
-      <div className="flex flex-col items-center py-10 px-20 justify-center">
-        <h1 className="nouns-font text-[40px]">
+      <div className="flex flex-col items-center py-10 px-4 md:px-20 justify-center">
+        <h1 className="nouns-font text-[24px] md:text-[40px] mb-4">
           Let's join the Nouns Ecosystem
         </h1>
-        <p className="text-sm px-[40px] text-center">
+        <p className="text-sm px-2 md:px-[40px] text-center">
           Nouns Students is a special collection designed for people that are
           joining the NFT Space. After you have gone through the content on this
           website and if you feel called to getting into the Nouns Ecosystem,
@@ -46,26 +46,26 @@ const CollectSection = () => {
           credit card, even if you don't own any ETH yet.
         </p>
       </div>
-      <div className="flex flex-row h-[70vh] w-full bg-[#E0D7D4] ">
-        <div className="w-1/2 bg-[#E0D7D4] items-end justify-center flex  h-full ">
+      <div className="flex flex-col-reverse md:flex-row h-full w-full bg-[#E0D7D4] ">
+        <div className="w-full md:w-1/2 bg-[#E0D7D4] items-end justify-center flex h-auto md:h-[70vh] ">
           <img
             src={nfts[currentIndex].image}
             alt={nfts[currentIndex].name}
             className="max-w-full h-auto"
           />
         </div>
-        <div className="w-1/2 bg-[#E0D7D4] pt-10 flex flex-col h-full items-start justify-center pt-20">
+        <div className="w-full md:w-1/2 bg-[#E0D7D4] pt-10 flex flex-col h-full items-start justify-center px-4 md:pt-20">
           <div className="flex bg-[#E0D7D4] text-white space-x-2 mt-5">
             <BsFillArrowLeftCircleFill onClick={moveLeft} size={25} />
             <BsFillArrowRightCircleFill onClick={moveRight} size={25} />
           </div>
-          <h3 className="text-4xl nouns-font font-semibold mb-2">
+          <h3 className="text-2xl md:text-4xl nouns-font font-semibold mb-2">
             {nfts[currentIndex].name}
           </h3>
           <p className="text-lg font-semibold mb-4">
             {nfts[currentIndex].price} | {nfts[currentIndex].priceUSD} + gas
           </p>
-          <p className="text-[10px] mr-20 font-semibold mb-4">
+          <p className="text-[10px] mr-0 md:mr-20 font-semibold mb-4">
             All the funds collected go directly to the treasury. If you don't
             own a Wallet Account, Crossmint will create one on your behalf. We
             allow credit card payments so you don't have to worry about having
