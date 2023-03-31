@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./Components/Navbar";
+import HeroSection from "./Components/HeroSection";
+import LearnSection from "./Components/LearnSection";
+import PlaySection from "./Components/PlaySection";
+import CollectSection from "./Components/CollectSection";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <HeroSection />
+      <LearnSection />
+      <PlaySection />
+      <CollectSection />
+      {/* Other sections will go here */}
     </div>
   );
 }
