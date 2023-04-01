@@ -9,21 +9,38 @@ import {
   DIRECTIONS,
 } from "./constants";
 
-const Sneak = () => {
+const Snake = () => {
   const canvasRef = useRef();
   const [snake, setSnake] = useState(SNAKE_START);
   const [apple, setApple] = useState(APPLE_START);
   const [dir, setDir] = useState([0, -1]);
   const [speed, setSpeed] = useState(null);
   const [gameOver, setGameOver] = useState(false);
+  const [score, setScore] = useState(0);
+  const [snakeHeadImg, setSnakeHeadImg] = useState(null);
   const [appleImg, setAppleImg] = useState(null);
 
   useInterval(() => gameLoop(), speed);
 
   useEffect(() => {
+    const snakeImg = new Image();
+    snakeImg.src = "/assets/nouns1.svg";
+    snakeImg.onload = () => setSnakeHeadImg(snakeImg);
+
     const img = new Image();
-    img.src = "/assets/noogles1.png"; // Change this path to the actual path of your image
+    img.src = "/assets/noogles1.png";
     img.onload = () => setAppleImg(img);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "ArrowUp" || event.key === "ArrowDown") {
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const endGame = () => {
@@ -59,6 +76,7 @@ const Sneak = () => {
         newApple = createApple();
       }
       setApple(newApple);
+      setScore(score + 1); // Update the score
       return true;
     }
     return false;
@@ -79,42 +97,64 @@ const Sneak = () => {
     setDir([0, -1]);
     setSpeed(SPEED);
     setGameOver(false);
+    setScore(0); // Reset the score
   };
 
   useEffect(() => {
     const context = canvasRef.current.getContext("2d");
     context.setTransform(SCALE, 0, 0, SCALE, 0, 0);
     context.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    context.fillStyle = "pink";
-    snake.forEach(([x, y]) => context.fillRect(x, y, 1, 1));
+
+    if (snakeHeadImg) {
+      context.drawImage(snakeHeadImg, snake[0][0], snake[0][1], 1, 1);
+    } else {
+      context.fillStyle = "pink";
+      context.fillRect(snake[0][0], snake[0][1], 1, 1);
+    }
+
+    context.fillStyle = "#E0D7D4";
+    snake.slice(1).forEach(([x, y]) => context.fillRect(x, y, 1, 1));
+
     if (appleImg) {
       context.drawImage(appleImg, apple[0], apple[1], 1, 1);
     } else {
       context.fillStyle = "lightblue";
       context.fillRect(apple[0], apple[1], 1, 1);
     }
-  }, [snake, apple, gameOver, appleImg]);
+  }, [snake, apple, gameOver, snakeHeadImg, appleImg]);
 
   return (
-    <div
-      className="items-center justify-center space-x-10 flex  max-h-[600px]"
-      role="button"
-      tabIndex="0"
-      onKeyDown={(e) => moveSnake(e)}
-    >
-      <canvas
-        className="mt-10"
-        style={{ border: "1px solid black" }}
-        ref={canvasRef}
-        width={`${CANVAS_SIZE[0]}px`}
-        height={`${CANVAS_SIZE[1]}px`}
-      />
-      {gameOver && <div>GAME OVER!</div>}
-      <button className="bg-blue-400 rounded-3xl px-4 py-2" onClick={startGame}>
-        Start Game
-      </button>
+    <div className="pb-10">
+      <div
+        className="items-center justify-center hidden md:flex max-h-[600px]"
+        role="button"
+        tabIndex="0"
+        onKeyDown={(e) => moveSnake(e)}
+      >
+        <canvas
+          className="mt-10"
+          style={{ border: "1px solid black" }}
+          ref={canvasRef}
+          width={`${CANVAS_SIZE[0]}px`}
+          height={`${CANVAS_SIZE[1]}px`}
+        />
+        <div className="flex flex-col items-center ml-10 space-y-4">
+          <div>Score: {score}</div>
+          <button
+            className="bg-blue-400 rounded-3xl px-4 py-2"
+            onClick={startGame}
+          >
+            Start Game
+          </button>
+          {gameOver && <div className="text-red-500 font-bold">GAME OVER!</div>}
+        </div>
+      </div>
+      <div className="nouns-font px-4 text-center flex md:hidden text-[30px] mt-20">
+        Please join us on Desktop to play this game. Mobile version is coming
+        soon
+      </div>
     </div>
   );
 };
 
-export default Sneak;
+export default Snake;

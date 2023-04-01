@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 const CustomCursor = ({ cursorImage, containerRef }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
     const updatePosition = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
@@ -17,14 +16,18 @@ const CustomCursor = ({ cursorImage, containerRef }) => {
       setVisible(false);
     };
 
-    containerRef.current.addEventListener("mousemove", updatePosition);
-    containerRef.current.addEventListener("mouseenter", showCursor);
-    containerRef.current.addEventListener("mouseleave", hideCursor);
+    if (containerRef.current) {
+      containerRef.current.addEventListener("mousemove", updatePosition);
+      containerRef.current.addEventListener("mouseenter", showCursor);
+      containerRef.current.addEventListener("mouseleave", hideCursor);
+    }
 
     return () => {
-      containerRef.current.removeEventListener("mousemove", updatePosition);
-      containerRef.current.removeEventListener("mouseenter", showCursor);
-      containerRef.current.removeEventListener("mouseleave", hideCursor);
+      if (containerRef.current) {
+        containerRef.current.removeEventListener("mousemove", updatePosition);
+        containerRef.current.removeEventListener("mouseenter", showCursor);
+        containerRef.current.removeEventListener("mouseleave", hideCursor);
+      }
     };
   }, [containerRef]);
 

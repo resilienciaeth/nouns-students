@@ -4,7 +4,7 @@ import CustomCursor from "./CustomCursor";
 
 const LearnCard = ({ image, title, to }) => (
   <Link
-    className="relative w-full  rounded-b-lg rounded-t-xl shadow-lg transition-shadow duration-300 group-hover:shadow-2xl max-w-[250px] min-w-[200px] overflow-hidden overflow-x-scroll mx-auto mb-6 group"
+    className="relative w-full  rounded-b-lg rounded-t-xl shadow-lg transition-shadow duration-300 group-hover:shadow-2xl max-w-[300px] min-w-[200px] overflow-hidden overflow-x-scroll mx-auto mb-6 group"
     to={to}
     style={{ cursor: "none" }}
   >
@@ -15,7 +15,7 @@ const LearnCard = ({ image, title, to }) => (
         className="rounded-lg transform transition-transform duration-300 group-hover:scale-110"
       />
       <div className="absolute bottom-0 left-0 w-full p-4 text-center bg-white bg-opacity-75 rounded-b-lg shadow-lg transition-shadow duration-300 group-hover:shadow-2xl">
-        <h3 className="font-semibold">{title}</h3>
+        <h3 className="font-semibold nouns-font text-[24px]">{title}</h3>
       </div>
     </div>
   </Link>
@@ -43,17 +43,13 @@ const LearnSection = () => {
           <LearnCard
             image="/assets/nouns1.svg"
             title="Web3 For Newbies"
-            to="/web3-for-newbies"
+            to="/web3"
           />
-          <LearnCard
-            image="/assets/nouns2.svg"
-            title="DAOs for Newbies"
-            to="/daos-for-newbies"
-          />
+
           <LearnCard
             image="/assets/nouns3.svg"
             title="Nouns For Newbies"
-            to="/nouns-for-newbies"
+            to="/nouns"
           />
         </div>
       </div>

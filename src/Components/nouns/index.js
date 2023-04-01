@@ -3,11 +3,10 @@ import ModuleMenu from "./ModuleMenu";
 import ModuleContent from "./ModuleContent";
 import Quiz from "./Quiz";
 
-const Web3ForNewbies = () => {
+const NounsForNewbies = () => {
   const [activeModule, setActiveModule] = useState(0);
   const [modulesPassed, setModulesPassed] = useState([
     true,
-    false,
     false,
     false,
     false,
@@ -33,53 +32,44 @@ const Web3ForNewbies = () => {
 
   const quizData = [
     {
-      question: "What is Web3?",
+      question: "What are Nouns?",
       options: [
-        "The next generation of the internet that's being developed, aimed at creating a more decentralized, open, and user-controlled internet.",
-        "A type of web browser used for gaming.",
-        "An online shopping website.",
+        "A unique type of NFT collectible that are part of NounsDAO, a decentralized autonomous organization that manages the Nouns project.",
+        "A visual language of symbols and icons used to communicate ideas and concepts.",
+        "A type of physical collectible that can be replicated or duplicated.",
       ],
       correctAnswer: 0,
     },
     {
-      question: "What is the blockchain?",
+      question: "What is a DAO?",
       options: [
-        "A type of cryptocurrency.",
-        "A digital ledger that stores information in a secure, decentralized and transparent way.",
-        "A type of web browser.",
+        "A decentralized autonomous organization that's run entirely on the blockchain.",
+        "A type of organization that relies on a centralized authority or middleman to operate.",
+        "A physical organization that operates using traditional business methods.",
       ],
-      correctAnswer: 1,
+      correctAnswer: 0,
     },
     {
-      question: "How are blocks linked together in a blockchain?",
-      options: [
-        "By a central authority",
-        "In a random order",
-        "In a chronological order",
-      ],
+      question: "When was NounsDAO created?",
+      options: ["2018", "2008", "2021"],
       correctAnswer: 2,
     },
     {
-      question: "What is cryptocurrency?",
+      question: "How are Nouns created?",
       options: [
-        "A type of digital or virtual currency that uses encryption techniques to secure transactions and control the creation of new units.",
-        "A physical coin made of precious metals.",
-        "A financial instrument issued by a government or financial institution.",
+        "Using a combination of four different traits: head, noogles, body, and accessories.",
+        "By randomly generating pixel images.",
+        "By curating images from different artists.",
       ],
       correctAnswer: 0,
     },
     {
-      question: "What is Ethereum?",
+      question: "What do noogles symbolize in the NounsDAO?",
       options: [
-        "A decentralized, open-source blockchain platform that allows developers to build decentralized applications using smart contracts.",
-        "A type of digital currency that's used to power transactions on the Ethereum network.",
-        "A centralized platform that's controlled by a single company or government.",
+        "The creativity and imagination at the heart of the Nouns project.",
+        "The financial value of Nouns.",
+        "The governance structure of NounsDAO.",
       ],
-      correctAnswer: 0,
-    },
-    {
-      question: "Did you create your wallet?",
-      options: ["Yes", "No"],
       correctAnswer: 0,
     },
   ];
@@ -105,4 +95,4 @@ const Web3ForNewbies = () => {
     </div>
   );
 };
-export default Web3ForNewbies;
+export default NounsForNewbies;

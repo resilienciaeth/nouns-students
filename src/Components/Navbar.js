@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Dropdown from "./Dropdown";
 
 const Navbar = () => {
@@ -9,95 +10,58 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <div className="font-bold text-xl max-w-[40px]">
-              <img src="/assets/noogles1.png"></img>
-            </div>
+            <Link to="/">
+              <div className="font-bold cursor-pointer text-xl max-w-[40px]">
+                <img src="/assets/noogles1.png"></img>
+              </div>
+            </Link>
           </div>
           <div className="hidden md:block">
             <div className="md:flex justify-between items-center space-x-20">
               <div className="relative mx-2">
                 <Dropdown title="Learn">
                   <a
-                    href="#"
+                    href="/web3"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     role="menuitem"
                   >
-                    Nouns for Dummies
+                    web3 For Newbies
                   </a>
                   <a
-                    href="#"
+                    href="/nouns"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     role="menuitem"
                   >
-                    DAOs for Dummies
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    role="menuitem"
-                  >
-                    Why Nouns Matter
+                    Nouns for Newbies
                   </a>
                 </Dropdown>
               </div>
               <div className="relative mx-2">
                 <Dropdown title="Play">
                   <a
-                    href="#"
+                    href="/nounssnake"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     role="menuitem"
                   >
-                    Interactive Quiz
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    role="menuitem"
-                  >
-                    The Nouns Game
-                  </a>
-                </Dropdown>
-              </div>
-              <div className="relative mx-2">
-                <Dropdown title="Collect">
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    role="menuitem"
-                  >
-                    Nouns Students
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    role="menuitem"
-                  >
-                    Nounsy
+                    Nounish Snake
                   </a>
                 </Dropdown>
               </div>
               <div className="relative mx-2">
                 <Dropdown title="Community">
                   <a
-                    href="#"
+                    href="https://nouns.center/projects"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     role="menuitem"
                   >
                     Projects
                   </a>
                   <a
-                    href="#"
+                    href="https://noun-o-talk.cohostpodcasting.com/"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     role="menuitem"
                   >
                     Podcast
-                  </a>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    role="menuitem"
-                  >
-                    Blog
                   </a>
                 </Dropdown>
               </div>
@@ -126,9 +90,11 @@ const Navbar = () => {
               </svg>
             </button>
           </div>
-          <button className="bg-blue-500 text-white font-bold py-2 px-4 rounded hidden md:block">
-            NOUNS.WTF
-          </button>
+          <Link className="hidden md:block" to="https://nouns.wtf/">
+            <button className="bg-blue-500 text-white text-[10px] font-bold py-2 px-4 rounded hidden md:block">
+              NOUNS.WTF
+            </button>
+          </Link>
         </div>
       </div>
       {/* Mobile menu */}
@@ -136,28 +102,22 @@ const Navbar = () => {
         <div className="px-2 pt-2 pb-3 space-y-1">
           {/* Mobile menu items */}
           <a
-            href="#"
+            href="/web3"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-gray-700"
           >
-            Learn
+            Web3 For Newbies
           </a>
           <a
-            href="#"
+            href="/nouns"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-gray-700"
           >
-            Play
+            Nouns For Newbies
           </a>
           <a
-            href="#"
+            href="/nounssnake"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-gray-700"
           >
-            Collect
-          </a>
-          <a
-            href="#"
-            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-white hover:bg-gray-700"
-          >
-            Community
+            Nounish Snake
           </a>
         </div>
       </div>

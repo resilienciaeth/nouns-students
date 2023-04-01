@@ -9,14 +9,14 @@ const CollectSection = () => {
     {
       id: 1,
       name: "Nouns Student #1",
-      image: "/assets/nouns1.svg",
+      image: "/assets/nounsstudent.png",
       price: "0.005 ETH",
       priceUSD: "$8",
     },
     {
       id: 2,
       name: "Nouns Student #2",
-      image: "/assets/nouns2.svg",
+      image: "/assets/nounsstudent.png",
       price: "0.005 ETH",
       priceUSD: "$8",
     },
@@ -40,10 +40,10 @@ const CollectSection = () => {
         </h1>
         <p className="text-sm px-2 md:px-[40px] text-center">
           Nouns Students is a special collection designed for people that are
-          joining the NFT Space. After you have gone through the content on this
-          website and if you feel called to getting into the Nouns Ecosystem,
-          you can join by getting a Nouns Student. You can buy your NFT with a
-          credit card, even if you don't own any ETH yet.
+          joining the NFT Space. After you have succesfully completed the whole
+          student program, you will be able to mint your Nouns Students NFT.
+          This is our approach to helping you become part of the Nouns
+          Ecosystem.
         </p>
       </div>
       <div className="flex flex-col-reverse md:flex-row h-full w-full bg-[#E0D7D4] ">
@@ -66,16 +66,22 @@ const CollectSection = () => {
             {nfts[currentIndex].price} | {nfts[currentIndex].priceUSD} + gas
           </p>
           <p className="text-[10px] mr-0 md:mr-20 font-semibold mb-4">
-            All the funds collected go directly to the treasury. If you don't
-            own a Wallet Account, Crossmint will create one on your behalf. We
-            allow credit card payments so you don't have to worry about having
-            ETH for gas fees.
+            All the funds collected go directly to the treasury. You have
+            already created your Metamask Wallet on the respective lesson of the
+            course. However, you can go ahead and get your Nouns Student with a
+            credit card, and Crossmint will create a wallet for you. After that,
+            you can simply transfer your Nouns Student to your Wallet.
+          </p>
+          <p className="text-[10px] mr-0 md:mr-20 font-semibold mb-4">
+            The collection will be available for students that have succesfully
+            completed the Nouns Student Program starting May 1st. The art will
+            be revealed then.
           </p>
           <div className="bg-[#E0D7D4]">
-            <button className="bg-black hover:opacity-[0.3] text-white py-2 px-4 rounded-lg mr-4">
+            <button className="bg-black hover:opacity-[0.3] hover:cursor-not-allowed text-white py-2 px-4 rounded-lg mr-4">
               Get with Crypto
             </button>
-            <button className="bg-black hover:opacity-[0.3] text-white py-2 px-4 rounded-lg">
+            <button className="bg-black hover:opacity-[0.3] hover:cursor-not-allowed text-white py-2 px-4 rounded-lg">
               Get with Fiat
             </button>
           </div>

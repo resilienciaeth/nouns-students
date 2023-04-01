@@ -8,9 +8,12 @@ const ModuleContent = ({ activeModule, quizData, handleQuizAnswer }) => {
     return (
       <div className="flex flex-col items-center justify-start mt-20 h-full">
         <h1 className="nouns-font text-[30px] px-10 text-center">
-          Congratulations! You have succesfully completed this module
+          Congratulations! You just succesfully completed this module
         </h1>
-        <p>You are now closer to getting your Nouns Student NFT!</p>
+        <p>
+          You are now elegible to claim your Nouns Student NFT. We will let you
+          know once it is available.
+        </p>
         <Link to="/nouns">
           <button className="bg-blue-400 nouns-font px-4 py-2 text-[20px] rounded-3xl mt-4 text-white">
             Learn about Nouns
